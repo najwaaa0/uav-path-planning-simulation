@@ -1,4 +1,4 @@
-"""Hybrid planner combining A* and RRT with dynamic replanning logic."""
+"""Hybrid planner that tries RRT* first and falls back to A*."""
 
 from __future__ import annotations
 
@@ -20,15 +20,18 @@ class HybridPlanner:
         self.last_mode: str = "none"
 
     def plan(self, known_map: KnownMap, start: Point, goal: Point) -> Optional[List[Point]]:
+        path = self.rrt.plan(known_map, start, goal)
+        if path:
+            self.last_plan = path
+            self.last_mode = "rrt_star"
+            return path
         path = self.astar.plan(known_map, start, goal)
         if path:
             self.last_plan = path
             self.last_mode = "astar"
             return path
-        path = self.rrt.plan(known_map, start, goal)
-        if path:
-            self.last_plan = path
-            self.last_mode = "rrt"
+        self.last_plan = None
+        self.last_mode = "none"
         return path
 
     def replan_if_blocked(self, known_map: KnownMap, start: Point, goal: Point, path: Optional[List[Point]]) -> Optional[List[Point]]:

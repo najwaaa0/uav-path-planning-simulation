@@ -6,9 +6,7 @@ import heapq
 import math
 from typing import Dict, List, Optional, Tuple
 
-import numpy as np
-
-from ..perception import FREE, OCCUPIED, UNKNOWN, KnownMap
+from ..perception import OCCUPIED, UNKNOWN, KnownMap
 
 Grid = Tuple[int, int]
 

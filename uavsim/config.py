@@ -34,6 +34,7 @@ class PlannerConfig:
     rrt_step: float = 3.0
     rrt_goal_sample_rate: float = 0.15
     rrt_allow_unknown: bool = True
+    rrt_rewire_radius: float = 10.0
 
 
 @dataclass
@@ -43,6 +44,16 @@ class SimConfig:
     waypoint_tolerance: float = 1.5
     replan_cooldown_steps: int = 5
     speed_scale: float = 0.6
+    min_speed_scale: float = 0.2
+    slow_down_radius: float = 8.0
+    stop_radius: float = 1.5
+    safety_margin: float = 0.6
+    replan_every_step: bool = True
+    safety_backoff_ratio: float = 0.5
+    safety_backoff_steps: int = 4
+    dynamic_memory_steps: int = 4
+    velocity_prediction_horizon: float = 1.2
+    dynamic_obstacle_lookahead_steps: int = 6
 
 
 @dataclass

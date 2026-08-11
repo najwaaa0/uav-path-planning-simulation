@@ -30,15 +30,51 @@ def dynamic_crossing(world: WorldConfig) -> tuple[Environment, Point, Point]:
     env = Environment(world.x_min, world.x_max, world.y_min, world.y_max)
     env.static_obstacles.extend(
         [
-            RectObstacle(10, 15, 10, 90),
-            RectObstacle(85, 90, 10, 90),
-            RectObstacle(30, 70, 10, 15),
-            RectObstacle(30, 70, 85, 90),
+            RectObstacle(12, 26, 14, 34),
+            RectObstacle(12, 26, 52, 82),
+            RectObstacle(28, 34, 36, 78),
+            RectObstacle(38, 54, 12, 30),
+            RectObstacle(40, 60, 44, 64),
+            RectObstacle(62, 68, 26, 70),
+            RectObstacle(72, 88, 18, 38),
+            RectObstacle(72, 88, 56, 84),
+            CircleObstacle((50, 82), 4.0),
         ]
     )
-    moving_circle = DynamicObstacle(CircleObstacle((20, 50), 3.5), velocity=(2.0, 0.0))
-    moving_rect = DynamicObstacle(RectObstacle(50, 55, 20, 30), waypoints=[(50, 20), (50, 70)])
-    env.dynamic_obstacles.extend([moving_circle, moving_rect])
-    start = (20.0, 20.0)
-    goal = (80.0, 80.0)
+    env.dynamic_obstacles.extend(
+        [
+            DynamicObstacle(
+                CircleObstacle((16, 22), 1.3),
+                velocity=(3.2, 1.0),
+                name="bird flock eastbound",
+                color="#d97706",
+            ),
+            DynamicObstacle(
+                CircleObstacle((84, 28), 1.5),
+                velocity=(-2.8, 1.6),
+                name="bird flock westbound",
+                color="#ea580c",
+            ),
+            DynamicObstacle(
+                CircleObstacle((54, 18), 2.0),
+                waypoints=[(54, 18), (54, 76)],
+                waypoint_speed=2.4,
+                name="inspection balloon",
+                color="#f59e0b",
+            ),
+            DynamicObstacle(
+                CircleObstacle((36, 72), 1.2),
+                waypoints=[(36, 72), (64, 52), (82, 70), (58, 86)],
+                waypoint_speed=3.1,
+                name="bird flock orbit",
+                color="#ef4444",
+            ),
+        ]
+    )
+    start = (8.0, 10.0)
+    goal = (94.0, 92.0)
     return env, start, goal
+
+
+def urban_birds(world: WorldConfig) -> tuple[Environment, Point, Point]:
+    return dynamic_crossing(world)

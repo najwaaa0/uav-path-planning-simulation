@@ -1,3 +1,51 @@
+# Python bytecode and caches
 __pycache__/
+*.py[cod]
+*$py.class
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and local environment files
 .venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+
+# Generated simulation outputs and figures
 outputs/
+*.log
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+
+# macOS and editor files
+.DS_Store
+.AppleDouble
+.LSOverride
+.vscode/
+.idea/
+
+# Temporary research/document artifacts that are not part of the portfolio codebase
+*.docx
+*.rtf
+_docx_image_test.html
+eq_test*.md
+Chapter_*_Revised_with_Citations.md
+Chapters_2_and_3_Merged.md
+Literature_Review_UAV_Path_Planning.md
+Thesis_Review_Response_Report.md
+UAV_Path_Planning_Thesis_Draft.md
+thesis_*.md
+COPILOT_CHAT_PROMPTS.md
+VISUALIZATION_GUIDE.md
+practice/
+visualize_*.py
+generate_thesis_figures*.py
+build_revised_thesis.py
