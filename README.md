@@ -1,12 +1,10 @@
 # UAV Path Planning Simulation Platform
 
-Bachelor's thesis project by **Najwa Aouaj**: *Design and Implementation of a UAV Path Planning Simulation Platform*.
-
 This repository contains a Python simulation platform for UAV path planning in 2D and 3D environments. The main focus is the 3D urban navigation simulator, where a UAV plans and replans paths through extruded building obstacles, moving spherical obstacles, and Boids-based bird flocks.
 
 The project is intended for studying path planning behavior, collision avoidance, dynamic replanning, and trajectory/metrics generation in simulated UAV missions.
 
-## Problem Being Solved
+## Starting point
 
 UAVs operating in urban environments must navigate around buildings and moving obstacles while maintaining safe clearance. This project simulates that problem by combining environment modeling, collision checking, path planning, replanning, motion constraints, adaptive speed control, and metrics logging.
 
